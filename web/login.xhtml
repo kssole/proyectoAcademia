@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Login</title>
+         <link href="css/estilos.css" type="text/css" rel="stylesheet" />
+    </h:head>
+    <h:body>
+        <center>
+            <h:outputLabel value="REGISTRO ACADEMIAS"/>
+            <h:form id="form1">
+                <h:panelGrid columns="2" cellpadding="10">
+                   
+                    <h:outputLabel for="usuario" value="Usuario:"/>  
+                    <h:inputText required="true" requiredMessage="Valor requerido :Usuario" value="#{LoginBean.usuario}" id="usuario"/>
+                    <h:outputLabel for="clave" value="Contraseña:" />  
+                    <h:inputSecret required="true" requiredMessage="Valor requerido:Clave" value="#{LoginBean.pass}" id="clave"/>  
+                    <f:facet name="footer">
+                        <center><h:commandButton action="#{LoginBean.login()}" value="Entrar" /></center>
+                    </f:facet>
+                   
+                </h:panelGrid>
+            </h:form>
+        </center>
+    </h:body>
+</html>
+

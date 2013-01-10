@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+      <h:head>
+        <title>SISTEMA DE INSCRIPCIONES </title>
+          <link rel="Stylesheet" type="text/css" href="css/estilos.css" />
+         <script src="js/jquery-1.8.3.js"></script>
+        <script type="text/javascript">
+           
+
+            $(document).on("ready",listo);
+            function listo(){
+                $.get("/pruebasREST/resources/entities.academia/2",respuesta);
+            }
+
+            function respuesta(data){
+                console.log(data);
+                $("#texto").html(data.nombre);
+            }
+        </script>
+    </h:head>
+    <h:body>
+        <h1 style="color: #266482" aling="center">Expediente</h1>
+              
+        <div id="texto"></div>
+
+        <div style="color: #266482" aling="center">Expediente</div>
+        <div id="texto"></div>
+          <h:panelGrid columns="6" cellpadding="10">
+                <h:outputLabel for="usuario" value="Usuario:"/>
+                <h:outputLabel  value="#{LoginBean.usuario}"/>
+                <h:outputLabel for="tipo" value="Tipo de Usuario"/>
+                <h:outputLabel  value="#{LoginBean.tipoUsuario}"/>
+                <h:form id="cerrar">
+                <h:commandButton action="#{LoginBean.cerrarSesion}" value="Cerrar Sesion" />
+                </h:form>
+            </h:panelGrid>
+     </h:body>
+</html>
